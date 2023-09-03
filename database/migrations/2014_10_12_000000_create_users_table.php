@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('family_name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_staff_valid')->default(0);
             $table->boolean('is_user')->default(1);
-            $table->string('tel');
-            $table->string('address');
+            $table->string('tel')->nullable();
+            $table->string('address')->nullable();
 
             /**
              * Civilité
@@ -33,10 +33,10 @@ return new class extends Migration
             /**
              * Date de naissance
              */
-            $table->date('dob');
+            $table->date('dob')->nullable();
 
 
-            $table->string('password'); ///TODO we dont need this in user, only staff members can connect
+            $table->string('password')->nullable(); ///TODO we dont need this in user, only staff members can connect
             $table->rememberToken();
             $table->timestamps();
         });
