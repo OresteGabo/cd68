@@ -39,11 +39,13 @@ class AdherentController extends Controller
     {
         $users = User::all();
         //dd($users);
+        $perPage = $request->input('perPage')??$request->session()->get('perpage', 10);
 
         //$adherents = DB::table('adherents')->get();
         ///TODO To create a select list that help us to sort either by name, inscription date, ...
         //$adherents=Adherent::('family_name')->get();
-        $perPage = $request->session()->get('perpage', 10);
+        //$perPage = $request->session()->get('perPage', 10);
+        //dd($perPage);
         $adherents=Adherent::orderBy('created_at', 'desc')->paginate($perPage);
         //dd($adherents);
         return view('adherent.index',compact('adherents','users','perPage'));

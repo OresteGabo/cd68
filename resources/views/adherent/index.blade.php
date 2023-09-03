@@ -17,11 +17,24 @@
                             <div class="row">
                                 <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
                                     <h2 class="ml-lg-2">Gestion des adhérents (Total : {{count(Adherent::all())}} Adherents)</h2>
+                                    <select name="perPage">
+
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="250">250</option>
+                                        <option value="500">500</option>
+                                        <option value="5000">5000</option>
+                                    </select>
+                                    <input type="hidden" name="perPage" id="perPage">
                                 </div>
                                 <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center"  >
+
                                     <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseAdherents" aria-expanded="true" aria-controls="collapseOne">
                                         Voir/cacher les adhérents
                                     </button>
+
                                 </div>
                             </div>
                         </div>
@@ -242,7 +255,22 @@
 
 
     </div>
+<script>
+    $(document).on('change', '#perPage', function() {
+        $.ajax({
+            url: '/adherent',
+            method: 'get',
+            data: {
+                perPage: $(this).val()
+            },
+            success: function(data) {
+                // Re-render the view with the new perPage value.
+                $('#adherent').html(data);
+            }
+        });
+    });
 
+</script>
 
 
 @endsection
