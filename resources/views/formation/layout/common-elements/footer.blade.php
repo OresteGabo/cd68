@@ -7,36 +7,14 @@
                 <p><a href="about-us">A propos</a></p>
 
             </div>
-            {{--<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-secondary">Products</h5>
-                <p><a href="#" class="text-white" style="text-decoration:none;">TheProviders</a></p>
-                <p><a href="#" class="text-white" style="text-decoration:none;">Creativity</a></p>
-                <p><a href="#" class="text-white" style="text-decoration:none;">SourceFiles</a></p>
-                <p><a href="#" class="text-white" style="text-decoration:none;">Bootstrap5 alpha</a></p>
-            </div>--}}
-            {{--<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-secondary">Liens utiles</h5>
-                <p><a href="{{view('admin.staffsite.index')}}"  style="text-decoration:none;">Se connecter</a></p>
-                <p><a href="#"  style="text-decoration:none;">FAQ</a></p>
-                <p><a href="#"  style="text-decoration:none;">Aides</a></p>
-                <p><a href="#"  style="text-decoration:none;">Paramètes</a></p>
-            </div>--}}
 
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-secondary">Liens utiles</h5>
-                <p><a href="{{route('staffsite.index')}}"  style="text-decoration:none;">Se connecter</a></p>
-                {{--<p><a href="#"  style="text-decoration:none;">FAQ</a></p>
-                <p><a href="#"  style="text-decoration:none;">Aides</a></p>
-                <p><a href="#"  style="text-decoration:none;">Paramètes</a></p>--}}
+                <p><a href="{{route('staffsite.index')}}"  style="text-decoration:none;">Site du personnel</a></p>
+                @if(auth()->user()!=null)
+                    <p><a href="{{route('logout')}}"  style="text-decoration:none;">Se déconnecter</a></p>
+                @endif
             </div>
-
-            {{--<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-secondary">Liens utiles</h5>
-                <p><a href="{{view('admin.staffsite.index')}}"  style="text-decoration:none;">Se connecter</a></p>
-                <p><a href="#"  style="text-decoration:none;">FAQ</a></p>
-                <p><a href="#"  style="text-decoration:none;">Aides</a></p>
-                <p><a href="#"  style="text-decoration:none;">Paramètes</a></p>
-            </div>--}}
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-start">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-secondary">Contact</h5>
                 <p><i class="bi bi-facebook mr-3"></i><a href="https://www.facebook.com/cdafal68" style="text-decoration:none;">  Cdafal du Haut-Rhin</a></p>
