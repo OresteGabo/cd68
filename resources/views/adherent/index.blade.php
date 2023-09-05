@@ -1,10 +1,15 @@
+<?php
+use App\Models\User;
+use App\Models\Adherent;
+use App\Models\Entertainment;
+use App\Models\City;
+
+?>
+
+
 @extends('dashboard.layouts.layout')
 @section('main-content')
-    <?php
-    use App\Models\User;
-    use App\Models\Adherent;
-    use App\Models\Entertainment;
-    ?>
+
 
 
     <div class="row">
@@ -48,13 +53,14 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th><span class="custom-checkbox">
+                                <th>{{--<span class="custom-checkbox">
                                      <input type="checkbox" id="selectAll">
-                                                <label for="selectAll"></label></span>
+                                                <label for="selectAll"></label></span>--}}
                                 </th>
                                 <th>Nom</th>
                                 <th>Email</th>
                                 <th>Addresse</th>
+                                <th>CP/Ville</th>
                                 <th>Tel</th>
                                 <th>CIR</th>
                                 <th>QPV</th>
@@ -64,19 +70,30 @@
                             <tbody>
                             @if(isset($adherents))
                                 @foreach($adherents as $adherent)
+                                    <?php
+
+
+
+
+                                        ?>
                                     {{--This div doenst have to be shown, it's purpose is only to set the value to the $user variable--}}
                                     <div class="d-none">{{$user=$users->find($adherent->user_id)}}</div>
                                     <button class="d-none delete_adherent_id" value="{{$adherent->id}}">zkhjbflzh</button>
 
 
                                     <tr>
-                                        <td><span class="custom-checkbox"></span>
-                                            <input type="checkbox" id="checkbox1" name="option[]" value="1">
-                                            <label for="checkbox1"></label></td>
+                                        <td>{{--<span class="custom-checkbox"></span>--}}
+                                            {{--<input type="checkbox" id="checkbox1" name="option[]" value="1">
+                                            <label for="checkbox1"></label>--}}
+                                        </td>
 
                                         <td>{{$user->family_name}} {{$user->first_name}}</td>
                                         <td>{{strtolower($user->email)}}</td>
                                         <td>{{$user->address}}</td>
+                                        <?php
+                                            $city=City::find($user->city_id);
+                                            ?>
+                                        <td>{{(($city??"")->cp)??""}} - {{(($city??"")->label)??""}}</td>
                                         <td>{{$user->tel}}</td>
                                         <td><h6 class="mb-0"><span class="badge {{$adherent->CIR === 1 ?"text-success":"text-danger"}} "><span class="material-symbols-outlined">{{$adherent->CIR?"done":"close"}}</span></span></h6></td>
                                         <td><h6 class="mb-0"><span class="badge {{$adherent->QPV === 1?"text-success":"text-danger"}} "><span class="material-symbols-outlined">{{$adherent->QPV?"done":"close"}}</span></span></h6></td>
