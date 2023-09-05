@@ -39,7 +39,7 @@ return new class extends Migration
             /**
              * Code postale (trouvé dans base de table des codes postaux ville
              */
-            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
 
             /**
@@ -60,27 +60,27 @@ return new class extends Migration
             /**
              * Lieu de naissance
              */
-            $table->unsignedBigInteger('place_of_birth');
+            $table->unsignedBigInteger('place_of_birth')->nullable();
             $table->foreign('place_of_birth')->references('id')->on('countries')->onDelete('cascade');
 
             /**
              * Nationalité
              */
-            $table->unsignedBigInteger('citizenship');
+            $table->unsignedBigInteger('citizenship')->nullable();
             $table->foreign('citizenship')->references('id')->on('countries')->onDelete('cascade');
 
             /**
              * situation administrative
              */
 
-            $table->unsignedBigInteger('legal_situation_id');
+            $table->unsignedBigInteger('legal_situation_id')->nullable();
             $table->foreign('legal_situation_id')->references('id')->on('legal_situations')->onDelete('cascade');
 
 
             /**
              * Situation familiale
              */
-            $table->unsignedBigInteger('marital_status_id');
+            $table->unsignedBigInteger('marital_status_id')->nullable();
             $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->onDelete('cascade');
 
 
@@ -88,31 +88,31 @@ return new class extends Migration
             /**
              * Revenu
              */
-            $table->unsignedBigInteger('income_type_id');
+            $table->unsignedBigInteger('income_type_id')->nullable();
             $table->foreign('income_type_id')->references('id')->on('income_types')->onDelete('cascade');
 
 
             /**
              * Date d'inscription
              */
-            $table->date('registration_date');
+            $table->date('registration_date')->nullable();
 
             /**
              * Date d'entrée en France
              */
-            $table->date('french_entry_date');
+            $table->date('french_entry_date')->nullable();
 
             /**
              * Niveau d'étude
              */
-            $table->unsignedBigInteger('education_level_id');
+            $table->unsignedBigInteger('education_level_id')->nullable();
             $table->foreign('education_level_id')->references('id')->on('education_levels')->onDelete('cascade');
 
 
             /**
              * Date de sortie
              */
-            $table->date('exit_date');
+            $table->date('exit_date')->nullable();
 
             /**
              * CIR(contrat d'integration républiquain)
