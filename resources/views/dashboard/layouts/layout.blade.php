@@ -80,7 +80,6 @@
                             <ul class="collapse list-unstyled menu" id="adherent">
                                 <li><a href="/adherent">Voir la liste</a></li>
                                 <li><a href="/adherent/create">Ajouter</a></li>
-                                {{--<li><a href="#">Modifier</a></li>--}}
                             </ul>
                         </li>
 
@@ -94,7 +93,6 @@
                             <ul class="collapse list-unstyled menu" id="kid">
                                 <li><a href="{{route('kid.index')}}">Toute la liste</a></li>
                                 <li><a href="{{route('kid.create')}}">Ajouter</a></li>
-                                {{--<li><a href="#">Supprimer</a></li>--}}
                             </ul>
                         </li>
 
