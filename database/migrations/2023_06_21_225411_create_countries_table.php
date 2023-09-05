@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('label');
             $table->string('phonecode');
+            $table->string('nationality_name');
         });
     }
 
