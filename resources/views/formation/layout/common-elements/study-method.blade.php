@@ -1,6 +1,6 @@
 <section>
     <div class="container">
-        <h2 class="mt-4 mb-3">Méthode de pédagogiques / Moyens techniques</h2>
+        <h2 class="mt-4 mb-3 text-dark">Méthode de pédagogiques / Moyens techniques</h2>
         @if(isset($labels))
             @foreach($labels as $label)
                 <p>{{$label}}</p>

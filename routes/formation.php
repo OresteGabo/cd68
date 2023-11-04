@@ -20,6 +20,7 @@ Route::get('/linguistique/le1', [FormationController::class, 'linguistiqueLE1'])
 Route::get('/linguistique/le2', [FormationController::class, 'linguistiqueLE2'])->name('linguistique.le2');
 Route::get('/mesure', [FormationController::class, 'mesure'])->name('mesure');
 Route::get('/pourparler', [FormationController::class, 'pourParler'])->name('pourparler');
+Route::get('/formateurs', [FormationController::class, 'formateurs'])->name('formateurs');
 
 
 //Route::resource('formation',FormationController::class);

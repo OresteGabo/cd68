@@ -1,4 +1,4 @@
-<footer class="bg-light  pt-5 pb-4">
+<footer class="bg-light  pt-5 pb-4 " style="background-color: #CB5A28; color: #fff; text-align: center; padding: 20px;">
     <div class="container text-center text-md-left">
         <div class="row text-center text-md-left">
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">

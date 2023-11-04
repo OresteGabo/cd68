@@ -1,18 +1,6 @@
 @extends('formation.layout.layout')
 
 @section('content')
-
-
-    <!-- main image & intro text -->
-    {{--@include('formation.layout.common-elements.intro',
-    [
-
-        'title'=>'FORMATION EN FRANÇAIS',
-        'subtitles'=>['Développement des compétences clés en situation de formation','CAP Cuisine'],
-        'public'=>'Ce cours est destiné à de jeunes mineurs en formation « CAP Cuisine » pris en charge par l’assistance sociale.',
-        'imgpath'=>'/images/mesure.png',
-        'docpath'=>'/docs/mesure.pdf'
-    ])--}}
     @include('formation.layout.common-elements.intro',
     [
         'title'=>'FORMATION EN FRANÇAIS',

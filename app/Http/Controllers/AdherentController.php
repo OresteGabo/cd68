@@ -38,18 +38,12 @@ class AdherentController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
-        //dd($users);
-        $perPage = $request->input('perPage')??$request->session()->get('perpage', 10);
-
-        //$adherents = DB::table('adherents')->get();
+        $perPage = $request->input('perPage', 10);
         ///TODO To create a select list that help us to sort either by name, inscription date, ...
-        //$adherents=Adherent::('family_name')->get();
-        //$perPage = $request->session()->get('perPage', 10);
-        //dd($perPage);
         $adherents=Adherent::orderBy('created_at', 'desc')->paginate($perPage);
-        //dd($adherents);
         return view('adherent.index',compact('adherents','users','perPage'));
     }
+
 
 
     public function updatePerPage(Request $request)
@@ -57,12 +51,6 @@ class AdherentController extends Controller
 
         $perPage = $request->input('perPage', 10); // Default to 10 if not provided
         $adherents=Adherent::paginate($perPage);
-
-        // Store the $perPage value in a session variable (optional)
-        //$request->session()->put('perpage', $perpage);
-
-        // Perform any other necessary actions with $perPage here
-        // For example, you might use it to fetch data for pagination
 
         // Redirect back to the adherents.blade.php view
         return redirect()->route('adherent.index',compact('adherents','perPage'));
@@ -77,7 +65,6 @@ class AdherentController extends Controller
      */
     public function create(){
 
-        //$income_types=DB::table('income_type')->get();
         $income_types=IncomeType::all();
         $genders=Gender::all();
         $education_levels=EducationLevel::all();
@@ -112,19 +99,14 @@ class AdherentController extends Controller
         //
         $adherent =new Adherent();
 
-        //$adherent->address=$request->input('address');
+
 
         $adherent->CIR=$request->input('CIR')===null ? false:true;
         $adherent->citizenship=$request->input('citizenship');
         $adherent->user_id=$request->input('user_id');
-        //$adherent->dob=$request->input('dob');
         $adherent->education_level_id=$request->input('education_level_id');
-        //$adherent->email=$request->input('email');
         $adherent->exit_date=$request->input('exit_date');
-        //$adherent->family_name=$request->input('family_name');
-        //$adherent->first_name=$request->input('first_name');
         $adherent->french_entry_date=$request->input('french_entry_date');
-        //$adherent->gender_id=$request->input('gender_id');
         $adherent->income_type_id=$request->input('income_type_id');
         $adherent->legal_situation_id=$request->input('legal_situation_id');
         $adherent->marital_status_id=$request->input('marital_status_id');
@@ -132,9 +114,7 @@ class AdherentController extends Controller
         $adherent->city_id=$request->input('city_id');
         $adherent->QPV=$request->input('QPV')===null ? false:true;
         $adherent->registration_date=$request->input('registration_date');
-        //$adherent->tel=$request->input('tel');
         $adherent->user_id=$request->input('user_id');
-        //dd($adherent->QPV);
 
         $adherent->save();
         return redirect('dashboard');
@@ -159,12 +139,9 @@ class AdherentController extends Controller
 
 
         $countries=Country::all();
-        //dd($adherent);
 
-        //dd($age_gap);
         $city=City::findOrFail($adherent->city_id);
         $placeOfBirth = Country::findOrFail($adherent->place_of_birth);
-        //dd($placeOfBirth);
 
         //To calcumate the age
         $now = new DateTime();
@@ -180,7 +157,7 @@ class AdherentController extends Controller
         $maritalStatus = MaritalStatus::findOrFail($adherent->marital_status_id);
         $incomeType = IncomeType::findOrFail($adherent->income_type_id);
         $educationLevel = EducationLevel::findOrFail($adherent->education_level_id);
-        //dd($paymentMethods);
+
         return view('adherent.show',[
             'age_gap'=>$age_gap,
                 'adherent'=>$adherent,
@@ -238,7 +215,7 @@ class AdherentController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {

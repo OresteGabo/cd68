@@ -22,7 +22,7 @@ use App\Models\City;
                             <div class="row">
                                 <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
                                     <h2 class="ml-lg-2">Gestion des adhérents (Total : {{count(Adherent::all())}} Adherents)</h2>
-                                    <select name="perPage">
+                                    {{--<select name="perPage">
 
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -32,7 +32,57 @@ use App\Models\City;
                                         <option value="500">500</option>
                                         <option value="5000">5000</option>
                                     </select>
-                                    <input type="hidden" name="perPage" id="perPage">
+                                    <input type="hidden" name="perPage" id="perPage">--}}
+
+
+
+
+                                    <span class="form-inline">
+                                    <form method="GET" action="{{ route('adherent.index') }}">
+                                        <label for="perPage">Par Page:</label>
+
+                                        <select name="perPage" id="perPage" onchange="this.form.submit()">
+                                            @for ($i =0; $i <= sizeof(Adherent::all()); $i+=50)
+                                                @if($i!=0)
+                                                <option value="{{$i}}" {{ Request::get('perPage') == $i ? 'selected' : '' }}>{{$i}}</option>
+                                                @endif
+                                            @endfor
+                                        </select>
+                                        <noscript><input type="submit" value="Submit"></noscript>
+                                    </form>
+                                    {{--<form method="GET" action="#">
+                                        <label for="perPage">Années</label>
+
+                                        <select name="perPage" id="#" onchange="this.form.submit()">
+                                            <option value="{{ date("Y")}}" {{ Request::get('perYear',  date("Y")) ==  date("Y") ? 'selected' : '' }}>{{ date("Y")}}</option>
+                                            <option value="2024" {{ Request::get('perYear') == 2024 ? 'selected' : '' }}>2024</option>
+                                            <option value="2023" {{ Request::get('perYear') == 2023 ? 'selected' : '' }}>2023</option>
+                                            <option value="2022" {{ Request::get('perYear') == 2022 ? 'selected' : '' }}>2022</option>
+                                            <option value="2021" {{ Request::get('perYear') == 2021 ? 'selected' : '' }}>2021</option>
+                                            <option value="2020" {{ Request::get('perYear') == 2020 ? 'selected' : '' }}>2020</option>
+                                            <option value="2019" {{ Request::get('perYear') == 2019 ? 'selected' : '' }}>2019</option>
+                                            <option value="{{sizeof(Adherent::all())}}" {{ Request::get('perPage') == sizeof(Adherent::all()) ? 'selected' : '' }}>TOUS:{{sizeof(Adherent::all())}}</option>
+                                        </select>
+                                        <noscript><input type="submit" value="Submit"></noscript>
+                                    </form>--}}
+                                        {{--<form name="perYears" id="#" onchange="this.form.submit()">
+                                            <label>Select Years:</label>
+                                            <select id="year-select" multiple>
+                                                <!-- Add the current year as the default selected option -->
+                                                <option value="{{ date('Y') }}" selected>{{ date('Y') }}</option>
+                                                <!-- Generate options for the past and future years -->
+                                                @for ($i = date('Y') + 5; $i >= date('Y') + 5; $i++)
+                                                    <!-- Exclude the current year (already selected) -->
+                                                    @if ($i != date('Y'))
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endif
+                                                @endfor
+                                            </select>
+                                            <br><br>
+                                            <input type="button" value="Submit" onclick="{{--showSelectedYears()--}">
+                                        </form>--}}
+                                    </span>
+
                                 </div>
                                 <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center"  >
 

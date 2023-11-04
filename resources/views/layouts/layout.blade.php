@@ -87,12 +87,7 @@
     <div class="top">
         <i class="uil uil-angle-left-b sidebar-toggle"></i>
 
-        <!--<div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here...">
-        </div>-->
 
-        <!--<img src="images/profile.jpg" alt="">-->
     </div>
 
     <div class="dash-content">

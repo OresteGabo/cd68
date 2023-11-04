@@ -40,7 +40,7 @@
     @include('formation.layout.common-elements.price',[
     ///TODO  Information to be personalised
     ])
-    @include('formation.layout.common-elements.contact')
+
 
 
     @include('formation.layout.common-elements.program',[
@@ -81,6 +81,7 @@
         ]
     ])
 
+
     @include('formation.layout.common-elements.evaluation',
     [
         'evaluationItems'=>[
@@ -90,5 +91,6 @@
             'Remise des grilles de compétences tout au long du parcours et des attestations en fin de formation.'
         ]
     ])
+    @include('formation.layout.common-elements.contact')
 
 @endsection

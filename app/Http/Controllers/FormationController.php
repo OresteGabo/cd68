@@ -175,5 +175,8 @@ class FormationController extends Controller
     public function mesure(){
         return view('formation.mesure');
     }
+    public function formateurs(){
+        return view('formation.formateurs');
+    }
 
 }

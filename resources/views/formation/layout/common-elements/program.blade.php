@@ -1,11 +1,11 @@
 <section>
     <div class="container">
-        <h2 class="mt-4 mb-3 ">Programme</h2>
+        <h2 class="mt-4 mb-3 text-dark">Programme</h2>
         <div class="card">
             <ol class="list-group list-group-flush" >
                 @foreach($prog as $progItem)
                     <li class="list-group-item">
-                        <h5 class="mb-3">{{$progItem['title']}}</h5>
+                        <h5 class="mb-3 text-dark">{{$progItem['title']}}</h5>
                         <ul class="list-group list-group-flush">
                             <?php $progItemElements=$progItem['progItemElements'];?>
                             @foreach($progItemElements as $progItemElement)

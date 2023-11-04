@@ -1,0 +1,57 @@
+/* Navbar styles */
+.navbar {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Text color */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Increase brand font size */
+}
+
+.nav-link {
+    color: #ffffff; /* Link text color */
+}
+
+/* Header section styles */
+#intro {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 40px;
+}
+
+h1.text-primary {
+    color: #343a40; /* Dark text color */
+}
+
+/* Main content sections */
+.bg-secondary {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Text color */
+}
+
+h2, h4 {
+    color: #ffffff; /* Heading text color */
+}
+
+.bg-primary {
+    background-color: #007bff; /* Primary color background */
+    color: #ffffff; /* Text color */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary color for buttons */
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f9fa; /* Light background color */
+    color: #343a40; /* Text color */
+}
+
+/* Override Bootstrap's default link color */
+a {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3; /* Slightly darker blue on hover */
+}
